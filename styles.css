@@ -1,0 +1,260 @@
+/* --- ГЛОБАЛЬНЫЕ СТИЛИ И ПЕРЕМЕННЫЕ (ТЕМНАЯ ТЕМА) --- */
+:root {
+    --primary-color: #3498db;      /* Голубой - Акцент */
+    --primary-hover: #2980b9;      /* Темный Голубой */
+    --secondary-color: #f39c12;    /* Желтый - Дополнительный акцент */
+    --background-dark: #2c3e50;    /* Темно-синий - Основной фон */
+    --background-mid: #34495e;     /* Средний фон для секций */
+    --card-background: #1e2b38;    /* Самый темный фон для карточек */
+    --text-light: #ecf0f1;         /* Светлый текст */
+    --text-muted: #bdc3c7;         /* Приглушенный текст */
+    --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+* {
+    box-sizing: border-box; 
+}
+
+body {
+    /* Используем Montserrat для всего сайта */
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    margin: 0;
+    line-height: 1.6;
+    overflow-x: hidden; 
+}
+
+h1, h2, h3, h4 {
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+p {
+    color: var(--text-muted);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 60px 0;
+}
+
+/* --- ЗАГОЛОВКИ СЕКЦИЙ --- */
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    font-weight: 900; 
+    text-transform: uppercase;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* --- 1. ШАПКА (HERO SECTION) --- */
+.hero-section {
+    background: url('https://picsum.photos/1920/1080?blur=5') no-repeat center center/cover; /* Размытое изображение */
+    position: relative;
+    padding: 60px 0 100px;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+/* Эффект Стекломорфизма (Glassmorphism) */
+.glass-overlay {
+    background: rgba(4, 18, 31, 0.88); /* Почти черный, прозрачный */
+    backdrop-filter: blur(8px); /* Более сильное размытие */
+}
+
+.logo {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.logo-icon {
+    font-size: 3em;
+    color: var(--secondary-color); /* Желтый акцент */
+    margin-right: 15px;
+}
+
+.logo p {
+    color: var(--text-light);
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--secondary-color); /* Желтый заголовок */
+    text-shadow: 0 0 10px rgba(243, 156, 18, 0.8);
+}
+
+.hero-slogan {
+    font-size: 1.4em;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+/* --- КНОПКИ CTA --- */
+.hero-cta-buttons {
+    gap: 25px; 
+}
+
+.cta-button {
+    color: var(--text-light);
+    border-radius: 5px;
+    box-shadow: var(--shadow-dark);
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    opacity: 0.9;
+}
+
+/* Стили для кнопки ЗВОНОК (Синий Градиент - Primary) */
+.call-cta {
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-hover));
+    border: 2px solid var(--secondary-color); /* Желтая рамка */
+}
+
+/* Стили для кнопки WHATSAPP (Зеленый Градиент) */
+.whatsapp-cta {
+    background: linear-gradient(45deg, #2ecc71, #27ae60);
+    border: 2px solid #2ecc71;
+}
+
+/* Анимация пульсации для звонка (Синий) */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(52, 152, 219, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(52, 152, 219, 0); }
+}
+
+.animated-pulse {
+    animation: pulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+
+/* --- 2. ПРЕИМУЩЕСТВА (FEATURES) --- */
+.features-section {
+    background-color: var(--background-dark);
+}
+
+.feature-item {
+    background: var(--card-background); /* Темный фон карточек */
+    border-radius: 10px;
+    box-shadow: var(--shadow-dark);
+    border-bottom: 4px solid var(--secondary-color); /* Желтая линия */
+}
+
+.feature-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.feature-item h3 {
+    color: var(--primary-color); /* Голубой заголовок */
+}
+
+/* --- 3. ШАГИ ВЫЗОВА (HOW-TO-ORDER) --- */
+.how-to-order-section {
+    background-color: var(--background-mid);
+}
+
+.step-card {
+    background: var(--card-background);
+    border-radius: 10px;
+    border-bottom: 5px solid var(--primary-color); /* Голубая линия */
+    box-shadow: var(--shadow-dark);
+}
+
+.step-icon {
+    font-size: 3.5em;
+    color: var(--secondary-color); /* Желтая иконка */
+    margin-bottom: 15px;
+}
+
+
+/* --- 4. ВИДЫ УСЛУГ (SERVICES) --- */
+.services-section {
+    background-color: var(--background-dark);
+}
+
+.service-card {
+    background: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.service-icon {
+    font-size: 2.5em;
+    color: var(--primary-color); /* Голубая иконка */
+    margin-bottom: 15px;
+}
+
+/* --- 5. ПОДВАЛ (FOOTER) --- */
+footer {
+    background: #19232d; /* Почти черный подвал */
+    color: var(--text-light);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-contact-title {
+    color: var(--secondary-color);
+}
+
+.footer-cta {
+    font-size: 1.5em;
+    padding: 12px 25px;
+    max-width: 300px;
+    background: var(--primary-color); 
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+    border: none;
+    margin-bottom: 30px;
+}
+
+.footer-cta:hover {
+     background-color: var(--primary-hover);
+}
+
+.copyright i {
+    color: var(--secondary-color); /* Желтая иконка */
+}
+
+/* --- АДАПТИВНОСТЬ (МОБИЛЬНЫЕ УСТРОЙСТВА) --- */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+    .section-title {
+        font-size: 1.8em;
+    }
+    .hero-cta-buttons {
+        gap: 15px;
+    }
+    .hero-cta-buttons .cta-button {
+        width: 100%;
+        max-width: 100%;
+        font-size: 1.2em;
+    }
+}
