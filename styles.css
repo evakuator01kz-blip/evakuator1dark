@@ -1,14 +1,13 @@
-/* --- ГЛОБАЛЬНЫЕ СТИЛИ И ПЕРЕМЕННЫЕ (ТЕМНАЯ ТЕМА) --- */
+/* --- ГЛОБАЛЬНЫЕ СТИЛИ И ПЕРЕМЕННЫЕ (ЯРКАЯ ТЕХНО-ТЕМА) --- */
 :root {
-    --primary-color: #3498db;      /* Голубой - Акцент */
-    --primary-hover: #2980b9;      /* Темный Голубой */
-    --secondary-color: #f39c12;    /* Желтый - Дополнительный акцент */
-    --background-dark: #2c3e50;    /* Темно-синий - Основной фон */
-    --background-mid: #34495e;     /* Средний фон для секций */
-    --card-background: #1e2b38;    /* Самый темный фон для карточек */
-    --text-light: #ecf0f1;         /* Светлый текст */
-    --text-muted: #bdc3c7;         /* Приглушенный текст */
-    --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --primary-color: #2ecc71;      /* Яркий Зеленый - Акцент (Технологичность) */
+    --primary-hover: #27ae60;      /* Темный Зеленый */
+    --secondary-color: #34495e;    /* Темно-синий/Серый - Основной текст и фон */
+    --background-light: #f9f9f9;   /* Очень светлый фон */
+    --card-background: #ffffff;    /* Белый фон карточек */
+    --text-dark: #333333;          /* Темный текст */
+    --text-muted: #666666;         /* Приглушенный текст */
+    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 * {
@@ -18,8 +17,8 @@
 body {
     /* Используем Montserrat для всего сайта */
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--background-dark);
-    color: var(--text-light);
+    background-color: var(--background-light);
+    color: var(--text-dark);
     margin: 0;
     line-height: 1.6;
     overflow-x: hidden; 
@@ -27,7 +26,7 @@ body {
 
 h1, h2, h3, h4 {
     font-weight: 700;
-    color: var(--text-light);
+    color: var(--secondary-color);
 }
 
 p {
@@ -48,7 +47,7 @@ section {
 .section-title {
     text-align: center;
     font-size: 2.5em;
-    color: var(--text-light);
+    color: var(--secondary-color);
     margin-bottom: 40px;
     font-weight: 900; 
     text-transform: uppercase;
@@ -59,168 +58,178 @@ section {
     display: block;
     width: 80px;
     height: 4px;
-    background: var(--primary-color);
+    background: var(--primary-color); /* Зеленая линия */
     margin: 10px auto 0;
     border-radius: 2px;
 }
 
 /* --- 1. ШАПКА (HERO SECTION) --- */
 .hero-section {
-    background: url('https://picsum.photos/1920/1080?blur=5') no-repeat center center/cover; /* Размытое изображение */
+    /* Фон: Светлый фон с четкой тенью */
+    background: var(--card-background);
     position: relative;
     padding: 60px 0 100px;
     text-align: center;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     z-index: 1;
 }
 
-/* Эффект Стекломорфизма (Glassmorphism) */
+/* Удаляем Glassmorphism для чистого белого фона */
 .glass-overlay {
-    background: rgba(4, 18, 31, 0.88); /* Почти черный, прозрачный */
-    backdrop-filter: blur(8px); /* Более сильное размытие */
+    display: none;
 }
 
 .logo {
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+    text-shadow: none;
+    justify-content: flex-start; /* Смещаем логотип влево */
+    margin-bottom: 30px;
 }
-
+.hero-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Выравнивание всего контента по левому краю */
+}
 .logo-icon {
     font-size: 3em;
-    color: var(--secondary-color); /* Желтый акцент */
+    color: var(--primary-color); /* Зеленый акцент */
     margin-right: 15px;
 }
 
-.logo p {
-    color: var(--text-light);
+.logo p, .logo span {
+    color: var(--secondary-color);
+}
+.logo span {
+    display: block;
+    font-size: 0.9em;
+    opacity: 0.8;
+    margin-left: 0;
+}
+
+.hero-content {
+    text-align: left; /* Контент по левому краю */
+    align-self: flex-start;
 }
 
 .hero-content h1 {
-    font-size: 3.5em;
+    font-size: 4em; /* Очень крупный заголовок */
     font-weight: 900;
     text-transform: uppercase;
-    color: var(--secondary-color); /* Желтый заголовок */
-    text-shadow: 0 0 10px rgba(243, 156, 18, 0.8);
+    color: var(--primary-color); /* Зеленый заголовок */
+    margin-top: 0;
+    line-height: 1.1;
 }
 
 .hero-slogan {
-    font-size: 1.4em;
-    color: var(--text-muted);
+    font-size: 1.5em;
+    color: var(--secondary-color);
     font-weight: 600;
 }
 
 /* --- КНОПКИ CTA --- */
 .hero-cta-buttons {
-    gap: 25px; 
+    justify-content: flex-start; /* Кнопки по левому краю */
 }
 
 .cta-button {
     color: var(--text-light);
-    border-radius: 5px;
-    box-shadow: var(--shadow-dark);
+    border-radius: 8px; /* Чуть менее округлые, более строгие */
+    box-shadow: var(--shadow-soft);
 }
 
 .cta-button:hover {
-    transform: translateY(-5px);
-    opacity: 0.9;
+    transform: translateY(-3px);
+    opacity: 0.95;
 }
 
-/* Стили для кнопки ЗВОНОК (Синий Градиент - Primary) */
+/* Стили для кнопки ЗВОНОК (Зеленый Градиент - Primary) */
 .call-cta {
     background: linear-gradient(45deg, var(--primary-color), var(--primary-hover));
-    border: 2px solid var(--secondary-color); /* Желтая рамка */
+    border: 2px solid var(--primary-color);
 }
 
-/* Стили для кнопки WHATSAPP (Зеленый Градиент) */
+/* Стили для кнопки WHATSAPP (Темно-серый) */
 .whatsapp-cta {
-    background: linear-gradient(45deg, #2ecc71, #27ae60);
-    border: 2px solid #2ecc71;
+    background: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
 }
 
-/* Анимация пульсации для звонка (Синий) */
+/* Анимация пульсации для звонка (Зеленый) */
 @keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7); }
-    70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(52, 152, 219, 0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(52, 152, 219, 0); }
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(46, 204, 113, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
 }
-
 .animated-pulse {
     animation: pulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
 }
 
-
 /* --- 2. ПРЕИМУЩЕСТВА (FEATURES) --- */
 .features-section {
-    background-color: var(--background-dark);
+    background-color: var(--background-light);
 }
 
 .feature-item {
-    background: var(--card-background); /* Темный фон карточек */
+    background: var(--card-background);
     border-radius: 10px;
-    box-shadow: var(--shadow-dark);
-    border-bottom: 4px solid var(--secondary-color); /* Желтая линия */
-}
-
-.feature-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--shadow-soft);
+    border-left: 5px solid var(--primary-color); /* Зеленый акцент слева */
 }
 
 .feature-item h3 {
-    color: var(--primary-color); /* Голубой заголовок */
+    color: var(--primary-color); /* Зеленый заголовок */
 }
 
 /* --- 3. ШАГИ ВЫЗОВА (HOW-TO-ORDER) --- */
 .how-to-order-section {
-    background-color: var(--background-mid);
+    background-color: #f0f0f0; /* Легкий контраст */
 }
 
 .step-card {
     background: var(--card-background);
     border-radius: 10px;
-    border-bottom: 5px solid var(--primary-color); /* Голубая линия */
-    box-shadow: var(--shadow-dark);
+    border-bottom: 5px solid var(--secondary-color); /* Серый акцент */
+    box-shadow: var(--shadow-soft);
 }
 
 .step-icon {
     font-size: 3.5em;
-    color: var(--secondary-color); /* Желтая иконка */
+    color: var(--primary-color); /* Зеленая иконка */
     margin-bottom: 15px;
 }
 
 
 /* --- 4. ВИДЫ УСЛУГ (SERVICES) --- */
 .services-section {
-    background-color: var(--background-dark);
+    background-color: var(--background-light);
 }
 
 .service-card {
     background: var(--card-background);
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e0e0e0;
 }
 
 .service-card:hover {
     border-color: var(--primary-color);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .service-icon {
     font-size: 2.5em;
-    color: var(--primary-color); /* Голубая иконка */
+    color: var(--secondary-color); /* Темно-серая иконка */
     margin-bottom: 15px;
 }
 
 /* --- 5. ПОДВАЛ (FOOTER) --- */
 footer {
-    background: #19232d; /* Почти черный подвал */
+    background: var(--secondary-color); /* Темно-серый подвал */
     color: var(--text-light);
     padding: 40px 0;
     text-align: center;
 }
 
 .footer-contact-title {
-    color: var(--secondary-color);
+    color: var(--primary-color); /* Зеленый заголовок */
 }
 
 .footer-cta {
@@ -228,7 +237,7 @@ footer {
     padding: 12px 25px;
     max-width: 300px;
     background: var(--primary-color); 
-    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
     border: none;
     margin-bottom: 30px;
 }
@@ -238,20 +247,37 @@ footer {
 }
 
 .copyright i {
-    color: var(--secondary-color); /* Желтая иконка */
+    color: var(--primary-color); /* Зеленая иконка */
 }
 
 /* --- АДАПТИВНОСТЬ (МОБИЛЬНЫЕ УСТРОЙСТВА) --- */
 @media (max-width: 768px) {
     .hero-content h1 {
-        font-size: 2.5em;
+        font-size: 3em; /* Крупнее на мобильных */
     }
+    
+    .hero-section .container, .hero-content {
+        align-items: center; /* Центрируем на мобильных */
+        text-align: center;
+    }
+
+    .logo {
+        justify-content: center;
+    }
+
+    .hero-cta-buttons {
+        justify-content: center;
+    }
+    
     .section-title {
         font-size: 1.8em;
     }
-    .hero-cta-buttons {
+    
+    .features-grid, .services-grid, .steps-grid {
+        flex-direction: column;
         gap: 15px;
     }
+    
     .hero-cta-buttons .cta-button {
         width: 100%;
         max-width: 100%;
